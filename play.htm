@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://ithelp.ithome.com.tw/mobile/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>播放數字對應的MP3</title>
+    <script>
+        function playMP3() {
+            var number = document.getElementById("numberInput").value;
+            if (number) {
+                var audio = document.getElementById("audioPlayer");
+                audio.src = number + '.mp3'; // 播放數字對應的 MP3 文件
+                audio.play();
+               
+            } else {
+                alert('請輸入一個數字');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>請輸入編號（1~366）</h1>
+    <form onsubmit="event.preventDefault(); playMP3();">
+        <label for="numberInput">數字：</label>
+        <input type="number" id="numberInput" name="numberInput" required>
+        <button type="submit">送出</button>
+    </form>
+    <audio id="audioPlayer" controls>
+        您的瀏覽器不支持音頻元素。
+    </audio>
+</body>
+</html>
