@@ -13,8 +13,12 @@
             if (number) {
                 var audio = document.getElementById("audioPlayer");
                 audio.src = number + '.mp3'; // 播放數字對應的 MP3 文件
+		numberInput.value="";
                 audio.play();
-               
+		document.getElementById("numberInput").focus();
+		var label2=document.getElementById("n2"); 
+		label2.innerText=number; 	
+
             } else {
                 alert('請輸入一個數字');
             }
@@ -24,10 +28,13 @@
 <body>
     <h1>請輸入編號（1~366）</h1>
     <form onsubmit="event.preventDefault(); playMP3();">
+
         <label for="numberInput">數字：</label>
         <input type="number" id="numberInput" name="numberInput" required>
+        <label id="n2" size="5" name="n2" >~~</label>
         <button type="submit">送出</button>
     </form>
+	
     <audio id="audioPlayer" controls>
         您的瀏覽器不支持音頻元素。
     </audio>
